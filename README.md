@@ -19,6 +19,12 @@ y_true = Variable('y_true', np.array([2, 4, 6]), trainable=False)
 W = Variable('w', 10)
 b = Variable('b', 1)
 
+def model(x, W, b):
+    return x * W + b
+
+def loss_fn(y_true, y_pred):
+    return ((y_true - y_pred)**2).mean()
+
 n_epochs = 10000
 losses = np.zeros(n_epochs)
 for i in range(n_epochs):
